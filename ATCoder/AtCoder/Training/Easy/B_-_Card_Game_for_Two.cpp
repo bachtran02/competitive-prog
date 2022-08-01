@@ -9,5 +9,15 @@ int main(){
     for (int &i : arr){
         cin >> i;
     }
+
+    sort(arr.begin(), arr.end(), greater<int>());
+    for (int i = 0; i < arr.size(); i++){
+        if (i % 2 == 0)
+            a += arr[i];
+        else    
+            b += arr[i];
+    }
+
+    cout << a - b << endl;
 }
     
