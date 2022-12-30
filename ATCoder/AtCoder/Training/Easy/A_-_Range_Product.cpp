@@ -19,7 +19,5 @@ int main()
     else
         cout << "Zero" << endl;
 
-
-
     return 0;
 }
