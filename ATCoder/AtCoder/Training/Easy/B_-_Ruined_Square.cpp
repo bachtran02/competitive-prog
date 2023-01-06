@@ -11,5 +11,5 @@ int main(){
 
     int length = findLength(x1, y1, x2, y2);
 
-    
+    cout << length << endl;
 }
