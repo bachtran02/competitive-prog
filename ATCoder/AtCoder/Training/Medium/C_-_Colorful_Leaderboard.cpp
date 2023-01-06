@@ -6,7 +6,7 @@ int main()
 
     int n; cin >> n;
     int add_max = 0;
-    int arr[8] = {399, 799, 1199, 1599, 1999, 2399, 2799, 3199 };
+    int arr[8] = {399, 799, 1199, 1599, 1999, 2399, 2799, 3199};
     unordered_set<int> s;
     for (int i = 0; i < n; i++){
         int num; cin >> num;
