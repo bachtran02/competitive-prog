@@ -8,11 +8,16 @@ int main()
 
     ll l, r; cin >> l >> r;
 
-    if (l % 2019 >= r % 2019 || r - l >= 673 || l % 673 >= r % 673)
+    if (r - l >= 673)
         cout << 0 << endl;
-    else
-        // ll minn = min(((l % 2019) * ((l + 1) % 2019)) % 2019, )
-        cout << ((l % 2019) * ((l + 1) % 2019)) % 2019 << endl; 
-
+    else{
+        ll minn = 2020;
+        for (ll i = l; i < r; i++){
+            for (ll j = i + 1; j <= r; j++){
+                minn = min(minn, ((i % 2019) * (j % 2019)) % 2019);
+            }
+        }
+        cout << minn << endl;
+    }
     return 0;
 }
