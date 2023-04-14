@@ -1,5 +1,7 @@
-#include <bits/stdc++.h>
-using namespace std;
+/*
+    Modular integer
+*/
+
 typedef long long ll;
 
 const int MOD = 1000000007; // 998244353
@@ -19,17 +21,3 @@ mint& operator*=(mint& a, mint b) { return a = a * b; }
 mint pow(mint a, ll p) { return p == 0 ? 1 : pow(a * a, p / 2) * (p & 1 ? a : 1); }
 mint inv(mint a) { return pow(a, MOD - 2); }
 mint operator/(mint a, mint b) { return a * inv(b); }
-
-int main()
-{
-    ios::sync_with_stdio(false); cin.tie(nullptr);
-
-    int n; cin >> n;
-    mint res = 1;
-
-    for (int i = 1; i <= n; i++)
-        res = res * 2;
-    
-    cout << res.val() << endl;
-    return 0;
-}
