@@ -17,6 +17,7 @@ int main()
 
     for (auto i : arr){
         
+
     }
 
     return 0;
