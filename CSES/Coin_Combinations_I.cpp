@@ -33,14 +33,11 @@ int main()
 
     sort(coins.begin(), coins.end());
 
+    dp[0] = 1;
     for (int i = 1; i <= x; i++){
         for (int j = 0; j < n; j++){
             if (i < coins[j])
                 break;
-            if (i == coins[j]){
-                dp[i] += 1;
-                break;
-            }
             dp[i] += dp[i - coins[j]];
         }
     }

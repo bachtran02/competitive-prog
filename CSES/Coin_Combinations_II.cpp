@@ -31,19 +31,13 @@ int main()
     for (int i = 0; i < n; i++)
         cin >> coins[i];
 
-    for (int i = 1; i <= x; i++){
-        for (int j = 0; j < n; j++){
-            if (i < coins[j])
-                break;
-            if (i == coins[j]){
-                dp[i] += 1;
-                break;
+    dp[0] = 1;
+    for (int i = 0; i < n; i++){
+        for (int j = 1; j <= x; j++){
+            if (coins[i] <= j){
+                dp[j] += dp[j - coins[i]];
             }
-            dp[i] += dp[i - coins[j]];
         }
     }
-
-    for (auto i : dp)
-        cout << i.v << " ";
-    cout << endl;
+    cout << dp[x].v << endl;
 }
