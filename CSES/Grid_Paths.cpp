@@ -1,9 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 typedef long long ll;
-typedef pair<int, int> pi;
 
-const int MOD = 1000000007; // 998244353
+const int MOD = 1000000007; // 998244353 - another common prime
 struct mint{
   int v;
   int val() { return v; }
@@ -21,17 +20,36 @@ mint pow(mint a, ll p) { return p == 0 ? 1 : pow(a * a, p / 2) * (p & 1 ? a : 1)
 mint inv(mint a) { return pow(a, MOD - 2); }
 mint operator/(mint a, mint b) { return a * inv(b); }
 
-void solve(){
-    int x; cin >> x;
-    mint n = x;
-    cout << ((2 * (n-1)*n*(2*n-1)/6 + (n-1)*n/2 + n*n) * 2022).v << endl;
-}
-
 int main()
 {
     ios::sync_with_stdio(false); cin.tie(nullptr);
-    int TC; cin >> TC;
-    while (TC--){
-        solve();
+
+    int n; cin >> n;
+    vector<string> m(n);
+    for (auto &i : m)
+        cin >> i;
+
+    for(int i = 1; i <= n; i++){
+        for (int j = 1; j <= n; j++)
+            cin >> m[i][j];
     }
+
+    // edge case: block at (0, 0) -> no path possible
+    if (m[0][0] == '*'){
+        cout << 0 << endl;
+        return 0;
+    }
+
+    vector<vector<mint>> dp(n + 1); 
+    for (auto &i : dp)
+        i.resize(n + 1, 0);
+
+    dp[1][1] = 1;
+    for(int i = 1; i <= n; i++){
+        for (int j = 1; j <= n; j++){
+            if (m[i-1][j-1] != '*')
+                dp[i][j] += dp[i-1][j] + dp[i][j-1];
+        }
+    }
+    cout << dp[n][n].v << endl;
 }
