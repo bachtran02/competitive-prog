@@ -10,7 +10,22 @@ void solve(){
     for (auto &i : arr)
         cin >> i;
 
-    
+    int res = 0;
+    bool inc = false, dec = false;
+
+    for (int i = 1; i < n; i++){
+        if (!inc && arr[i - 1] < arr[i]){
+            res++;
+            inc = true;
+            dec = false;
+        }
+        if (!dec && arr[i - 1] > arr[i]){
+            res++;
+            dec = true;
+            inc = false;
+        }
+    }
+    cout << res + 1 << endl;
 }
 
 int main()
