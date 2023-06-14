@@ -4,8 +4,16 @@ typedef long long ll;
 typedef pair<int, int> pi;
 
 void solve(){
-    int n; cin >> n;
-    
+    string str; cin >> str;
+    int n = str.size();
+    char x = '0';
+
+    for (char &c : str){
+        if (c == '?')
+            c = x;
+        x = c;
+    }
+    cout << str << endl;
 }
 
 int main()

@@ -5,6 +5,11 @@ typedef pair<int, int> pi;
 
 void solve(){
     int n; cin >> n;
+    vector<int> arr(n);
+
+    for (auto &i : arr)
+        cin >> i;
+    
     
 }
 
