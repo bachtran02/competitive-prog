@@ -7,10 +7,12 @@ void solve(){
     int n; cin >> n;
     vector<int> arr(n);
 
-    for (auto &i : arr)
+    int sum = n + 1;
+    for (auto &i : arr){
         cin >> i;
-    
-    
+        cout << sum - i << " ";
+    }
+    cout << endl;
 }
 
 int main()
